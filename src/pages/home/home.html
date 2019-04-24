@@ -1,14 +1,57 @@
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Ex. Rate Calculator
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content padding padding class = "bg">
+  <h3>Currency Rates (Base {{baseStr}})</h3>
+  <ion-list>
+    <ion-item>
+
+        <p>£ {{GBPrate}} (GBP)</p>
+        <p>$ {{AUDrate}} (AUD)</p>
+        <p>$ {{NZDrate}} (NZD)</p>
+        <p>¥ {{JPYrate}} (JPY)</p>
+        <p>$ {{USDrate}} (USD)</p>
+        <p>Kr. {{DKKrate}} (DKK)</p>
+        <p>zł {{PLNrate}} (PLN)</p>
+        <p>Kr. {{SEKrate}} (SEK))</p>
+
+        <p>Лв. {{BGNrate}} (BGN)</p>
+        <p>kn {{HRKrate}} (HRK)</p>
+        <p>Kč {{CZKrate}} (CZK)</p>
+        <p>Ft {{HUFrate}} (HUF)</p>
+        <p>lei {{RONrate}} (RON)</p>
+        <br>
+
+        <p>Enter euro value: </p>
+        <input [(ngModel)]="number" type="number">
+        <br>
+        <button class="rbutton" (click)="getGBP()">GBP</button>
+        <button class="rbutton" (click)="getAUD()">AUD</button>
+        <button class="rbutton" (click)="getNZD()">NZD</button>
+        <button class="rbutton" (click)="getJPY()">JPY</button>
+        <br>
+        <button class="rbutton" (click)="getUSD()">USD</button>
+        <button class="rbutton" (click)="getDKK()">DKK</button>
+        <button class="rbutton" (click)="getPLN()">PLN</button>
+        <button class="rbutton" (click)="getSEK()">SEK</button>
+        <br>
+        <button class="rbutton" (click)="getBGN()">BGN</button>
+        <button class="rbutton" (click)="getHRK()">HRK</button>
+        <button class="rbutton" (click)="getCZK()">CZK</button>
+        <button class="rbutton" (click)="getHUF()">HUF</button>
+        <br>
+        <button class="rbutton" (click)="getRON()">RON</button>
+        <br><br>
+
+        <h4>Result = €{{result}}</h4>        
+    </ion-item>
+  </ion-list>
+  <button class="button" (click)="openEUCountries()">Euro-Using Countries</button>
+</ion-content> 
+

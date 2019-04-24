@@ -1,22 +1,13 @@
-page-home {
-
+page-euro-countries {
     .bg {
         background: linear-gradient(to bottom,  hsl(0, 0%, 100%) 5%, rgba(13, 212, 129, 0.9) 105%);
     }
     .button {
         background: linear-gradient(to bottom,  hsl(123, 72%, 19%) 5%, rgba(13, 212, 129, 0.308) 105%);
         color: white;
-        padding: 20px 30px;
+        padding: 10px 20px;
         text-align: center;
         display: inline-block;
-        font-size: 15px;
+        font-size: 10px;
     }
-    .rbutton {
-        background: linear-gradient(to bottom,  hsl(123, 55%, 72%) 5%, rgba(13, 212, 129, 0.308) 105%);
-        color: black;
-        text-align: center;
-        display: inline-block;
-        //font-size: 15px;
-    }
-
 }
