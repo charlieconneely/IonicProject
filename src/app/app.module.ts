@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -20,7 +20,8 @@ import { MultiplyProvider } from '../providers/multiply/multiply';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,10 +30,10 @@ import { MultiplyProvider } from '../providers/multiply/multiply';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RateProvider,
-    MultiplyProvider
+    MultiplyProvider,
   ]
 })
 export class AppModule {

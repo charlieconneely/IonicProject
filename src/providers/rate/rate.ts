@@ -18,7 +18,6 @@ export class RateProvider {
   getRateInfo():Observable<any> 
   {
     return this.http.get('http://data.fixer.io/api/latest&access_key=d41539a13419a88e1bd90c597d64bb7a');
-    //return this.http.get('https://api.nytimes.com/svc/topstories/v2/science.json?api-key=xyJAP0ywn0ewrxnoFxu8hezmXvHXDwN1');
   }
 
 }

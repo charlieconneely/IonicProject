@@ -3,6 +3,9 @@ import { NavController, MenuController } from 'ionic-angular';
 import { RateProvider } from '../../providers/rate/rate';
 import {MultiplyProvider} from '../../providers/multiply/multiply';
 import { EuroCountriesPage } from '../euro-countries/euro-countries';
+import { Storage } from '@ionic/storage';
+import {CalculationPage} from '../calculation/calculation';
+import { LocationPage } from '../location/location';
 
 @Component({
   selector: 'page-home',
@@ -29,12 +32,18 @@ export class HomePage implements OnInit{
   RONrate: any;
 
   result: number;
+  resultString: any;
   number: number;
   currency: number;
+
+  savedNum: any;
+  savedResult: any;
+  information: any;
   
   constructor(public navCtrl: NavController,
               private rateProvider: RateProvider, 
-            private multiplyProvider: MultiplyProvider) {
+              private multiplyProvider: MultiplyProvider,
+              private storage: Storage) {
 
   }
 
@@ -67,47 +76,75 @@ export class HomePage implements OnInit{
   }
 
   getGBP() {
-    this.result = this.multiplyProvider.getGBP(this.number, this.GBPrate);
+    this.result = this.multiplyProvider.getGBP(this.number, this.GBPrate); // call mulitiply provider 
+    this.resultString = "£ " + this.result; // create string with the appropriate currency symbol
   }
   getAUD() {
-    this.result = this.number*this.AUDrate;
+    this.result = this.number*this.AUDrate; // multiply the user-input number by the rate 
+    this.resultString = "$ " + this.result;
   }
   getJPY() {
     this.result = this.number*this.JPYrate;
+    this.resultString = "¥ " + this.result;
   }
   getUSD() {
     this.result = this.number*this.USDrate;
+    this.resultString = "$ " + this.result;
   }
   getDKK() {
     this.result = this.number*this.DKKrate;
+    this.resultString = "Kr. " + this.result;
   }
   getPLN() {
     this.result = this.number*this.PLNrate;
+    this.resultString = "zł " + this.result;
   }
   getSEK() {
     this.result = this.number*this.SEKrate;
+    this.resultString = "Kr. " + this.result;
   }
   getNZD() {
     this.result = this.number*this.NZDrate;
+    this.resultString = "$ " + this.result;
   }
   getBGN() {
     this.result = this.number*this.BGNrate;
+    this.resultString = "Лв. " + this.result;
   }
   getHRK() {
     this.result = this.number*this.HRKrate;
+    this.resultString = "kn " + this.result;
   }
   getCZK() {
     this.result = this.number*this.CZKrate;
+    this.resultString = "Kč " + this.result;
   }
   getHUF() {
     this.result = this.number*this.HUFrate;
+    this.resultString = "Ft " + this.result;
   }
   getRON() {
     this.result = this.number*this.RONrate;
+    this.resultString = "lei " + this.result;
   }
 
-  openEUCountries() {
+  openEUCountries() { // open page with euro using countries info
     this.navCtrl.push('EuroCountriesPage');
+  }
+
+  openLocationPage() {
+    this.navCtrl.push('LocationPage');
+  }
+
+  save() {
+    console.log(this.number);
+    console.log(this.resultString);
+    this.storage.set("num", this.number);
+    this.storage.set("resultStr", this.resultString);
+  }
+
+  openCalculationPage() {
+    this.navCtrl.push('CalculationPage');
   }
 
 }

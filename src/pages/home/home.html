@@ -2,7 +2,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ex. Rate Calculator
+      Rate Exchanger
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -49,9 +49,12 @@
         <button class="rbutton" (click)="getRON()">RON</button>
         <br><br>
 
-        <h4>Result = €{{result}}</h4>        
+        <h4>Result = {{resultString}}</h4>        
     </ion-item>
   </ion-list>
   <button class="button" (click)="openEUCountries()">Euro-Using Countries</button>
+  <button class="button" (click)="save()">Save Result</button>
+  <button class="button" (click)="openCalculationPage()">View Saved Calculation</button>
+  <button class="button" (click)="openLocationPage()">View Location</button>
 </ion-content> 
 

@@ -1,0 +1,13 @@
+page-calculation {
+    .bg {
+        background: linear-gradient(to bottom,  hsl(0, 0%, 100%) 5%, rgba(13, 212, 129, 0.9) 105%);
+    }
+    .button {
+        background: linear-gradient(to bottom,  hsl(123, 72%, 19%) 5%, rgba(13, 212, 129, 0.308) 105%);
+        color: white;
+        padding: 20px 30px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+    }
+}
