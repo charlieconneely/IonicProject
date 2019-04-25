@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,7 +22,7 @@ import { MultiplyProvider } from '../providers/multiply/multiply';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,10 +31,11 @@ import { MultiplyProvider } from '../providers/multiply/multiply';
   ],
   providers: [
     StatusBar,
-    SplashScreen, 
+    SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RateProvider,
-    MultiplyProvider,
+    MultiplyProvider
   ]
 })
 export class AppModule {

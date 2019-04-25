@@ -1,16 +1,16 @@
-<!--
-  Generated template for the LocationPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>Location</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <p>Latitude: </p>
-  <p>Longitude: </p>
+<ion-content padding class = "bg">
+  <button class="button" (click)="getLocation()">Get Location</button>
+  <ion-list>
+    <ion-item>
+      <p>Latitude: {{lat}}</p>
+      <p>Longitude: {{long}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

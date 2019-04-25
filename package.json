@@ -40,6 +40,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-geolocation": {
+        "GEO_DESCRIPTION": "locate self",
         "GEO_LOCATION_USAGE_DESCRIPTION": "To locate you"
       }
     }

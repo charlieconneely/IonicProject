@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {HomePage} from '../home/home';
 
-/**
- * Generated class for the CalculationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-calculation',
@@ -31,14 +24,14 @@ export class CalculationPage {
     this.navCtrl.push(HomePage);
   }
 
-    ionViewWillEnter(){
-    this.storage.get("num")
+    ionViewWillEnter(){ // retrieve data storage info
+    this.storage.get("num") // user-input number 
     .then((val) => {
       this.information1 = val;
     }).catch((err) => {
       console.log(err);
     });
-    this.storage.get("resultStr")
+    this.storage.get("resultStr") // result of calculation
     .then((val) => {
       this.information2 = val;
     }).catch((err) => {

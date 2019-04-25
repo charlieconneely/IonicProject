@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 @IonicPage()
 @Component({
@@ -9,16 +10,18 @@ import {HomePage} from '../home/home';
 })
 export class LocationPage {
   lat: any;
-  lng: any;
+  long: any;
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams) {
+              public navParams: NavParams,
+            public geolocation: Geolocation) {
   }
 
-  // ionViewDidLoad() {
-  //   this.geolocation.getCurrentPosition().then( pos => {
-  //     this.lat = pos.coords.latitude;
-  //     this.lng = pos.coords.longitude;
-  //   }).catch (err => console.log(err)); 
-  // }
+  getLocation() {
+    let watch = this.geolocation.watchPosition(); 
+    watch.subscribe((data) => {
+      this.lat = data.coords.latitude // pass data containing coordinates into lat and long variables 
+      this.long = data.coords.longitude
+    });
+  } 
 
 }

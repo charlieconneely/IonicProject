@@ -13,8 +13,6 @@ import { LocationPage } from '../location/location';
 })
 export class HomePage implements OnInit{
 
-  exrates: any = [];
-  stocks:any;
   baseStr: any;
   currentDate: any;
   GBPrate: any;
@@ -34,11 +32,6 @@ export class HomePage implements OnInit{
   result: number;
   resultString: any;
   number: number;
-  currency: number;
-
-  savedNum: any;
-  savedResult: any;
-  information: any;
   
   constructor(public navCtrl: NavController,
               private rateProvider: RateProvider, 
@@ -49,9 +42,6 @@ export class HomePage implements OnInit{
 
   ionViewDidLoad(){
     this.rateProvider.getRateInfo().subscribe((data)=>{
-      // console.log(data);
-      // this.stocks = data;
-      // console.log(this.stocks.rates);
       this.GBPrate = data.rates.GBP;
       this.AUDrate = data.rates.AUD;
       this.NZDrate = data.rates.NZD;
@@ -67,6 +57,7 @@ export class HomePage implements OnInit{
       this.HUFrate = data.rates.HUF;
       this.RONrate = data.rates.RON;
       this.baseStr = data.base;
+      this.currentDate = data.date;
   });
 
   }
@@ -132,18 +123,18 @@ export class HomePage implements OnInit{
     this.navCtrl.push('EuroCountriesPage');
   }
 
-  openLocationPage() {
+  openLocationPage() { // open page with lat and long coordinates
     this.navCtrl.push('LocationPage');
   }
 
-  save() {
+  save() { // save calculation in local storage 
     console.log(this.number);
     console.log(this.resultString);
     this.storage.set("num", this.number);
     this.storage.set("resultStr", this.resultString);
   }
 
-  openCalculationPage() {
+  openCalculationPage() { // open page displaying saved calculation
     this.navCtrl.push('CalculationPage');
   }
 
